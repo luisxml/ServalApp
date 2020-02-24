@@ -1,0 +1,26 @@
+<div style="margin-left: 20px; margin-top: 20px;">
+    <h2 style="margin-left: 220px; text-decoration: underline">Listado de Empresas</h2>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Items</th>
+                <th>RUC</th>
+                <th>Razon Social</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Contanto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let companyUser of companyUsers">
+                <td>{{companyUser.ITEMS}}</td>
+                <td>{{companyUser.ID_COMPANY}}</td>
+                <td>{{companyUser.DS_COMPANY}}</td>
+                <td>{{companyUser.EMAIL}}</td>
+                <td>{{companyUser.PHONE}}</td>
+                <td>{{companyUser.CONTACT}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
