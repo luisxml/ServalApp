@@ -42,7 +42,7 @@ export class AddcompanyComponent implements OnInit {
     this.loading = true;
     this.google = false;
     this.companyUser = new CompanyUser('', 0, '', '');
-    this.addressCompany = new AddressCompany(0, '', '', 0, false, 0);
+    this.addressCompany = new AddressCompany(0, '', '', 0, false);
   }
 
   ngOnInit() {

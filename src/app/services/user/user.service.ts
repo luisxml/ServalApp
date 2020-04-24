@@ -540,6 +540,30 @@ export class UserService {
   }
   // Fin de Metodo para listar empresas
 
+  // // Metodo para listar empresas
+  // async getCompanysReport(ID_USER, search) {
+  //   if (search === '') {
+  //     search = '0';
+  //   }
+  //   // tslint:disable-next-line: prefer-const
+  //   let params = {'search': search};
+  //   // console.log(params);     
+  //   const companys = await this._http.post(this.URL + '/user/companys/' + ID_USER, params);
+  //   return companys
+  //   // .pipe(map((res: any) => {
+  //   //   return res;
+  //   // }));
+  // }
+  // // Fin de Metodo para listar empresas
+
+  // const peliculas = await this._storage.get('peliculas');
+  //   this.peliculas = peliculas || [];
+  //   // console.log(this.peliculas);
+  //   return this.peliculas;
+
+
+
+
   // Metodo para listar Departamentos
   getDepartamentos() {
     return this._http.get(this.URL + '/address/departamentos')

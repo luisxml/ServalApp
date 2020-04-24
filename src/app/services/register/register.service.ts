@@ -126,10 +126,31 @@ getClients(search) {
   }
   return this._http.get(this.URL + '/register/clients/' + search + '/' + this._userService.user.ID_USER)
   .pipe(map((res: any) => {
+    // console.log(res);
     return res;
   }));
 }
 // End Get Clients
+
+// // Get Clients
+// async getClientsReport(search) {
+//   if (search === '') {
+//     search = '0';
+//   }
+//   //return
+//   const report = await this._http.get(this.URL + '/register/clients/' + search + '/' + this._userService.user.ID_USER)
+//   report.pipe(map((res: any) => {
+//      console.log('res.clients:', res.clients);
+//      return res.clients;
+//   }));
+//   // console.log('report:', report)
+//   // return report;
+//   // const clientes = await report.pipe(map((res: any) => {
+//   //   // console.log(res);
+//   //   return clientes;
+//   // }));
+// }
+// // End Get Clients
 
 // Get Client
 getClient(idClient) {

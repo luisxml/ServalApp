@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { AddressCompanyUpdate } from '../../models/addressCompanyUpdate.model';
 import { AddressCompany } from '../../models/addressCompany.model';
 
 @Component({
@@ -16,8 +15,7 @@ export class UpdateAddressComponent implements OnInit {
   public departamentos: any[] = [];
   public provincias: any[] = [];
   public distritos: any[] = [];
-  public addressCompany: AddressCompanyUpdate;
-  public addresCompanyUpdate: AddressCompany;
+  public addressCompany: AddressCompany;  
   public idDepartamento = '';
   public idProvincia = '';
   public idDistrito = '';
@@ -30,8 +28,7 @@ export class UpdateAddressComponent implements OnInit {
     // tslint:disable-next-line: variable-name
     public _router: Router
   ) {
-     this.addressCompany = new AddressCompanyUpdate(0, 0, '', '', 0, 0, 0, '');
-     this.addresCompanyUpdate = new AddressCompany(0, '', '', 0, false, 0);
+     this.addressCompany = new AddressCompany(0, '', '', 0, false);     
   }
 
   ngOnInit() {

@@ -107,7 +107,7 @@ export class ClientsComponent implements OnInit {
   printer() {
     this._userService.loadReport();
     if (this.search.length === 0) {
-      window.open('#/listclients/' + '0', '0' , '_blank');
+      window.open('#/listclients/' + '0', '0', '_blank');
     } else {
       window.open('#/listclients/' + this.search, '0' , '_blank');
     }

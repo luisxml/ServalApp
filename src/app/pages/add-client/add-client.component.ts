@@ -45,7 +45,7 @@ export class AddClientComponent implements OnInit {
     this.client = new Client('', 0, '');
     this.idenType = 4;
     this.idTypeClient = 1;
-    this.addressClient = new AddressClient(0, '', '', 0, false, 0);
+    this.addressClient = new AddressClient(0, '', '', 0, false);
   }
 
   ngOnInit() {

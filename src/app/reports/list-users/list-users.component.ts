@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit,  OnDestroy } from '@angular/core';
 import { UserService } from 'src/app/services/service.index';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -9,7 +9,7 @@ declare function init_plugins();
   templateUrl: './list-users.component.html',
   styleUrls: ['./list-users.component.css']
 })
-export class ListUsersComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ListUsersComponent implements OnInit,  OnDestroy {
 
   public users;
   public search;
@@ -34,9 +34,9 @@ export class ListUsersComponent implements OnInit, AfterViewInit, OnDestroy {
     this.getUsers(this.search);
   }
 
-  ngAfterViewInit() {
-    this.activePrinter();
-  }
+  // ngAfterViewInit() {
+  //   this.activePrinter();
+  // }
 
   ngOnDestroy() {
     this._userService.closeReport();
@@ -57,5 +57,14 @@ export class ListUsersComponent implements OnInit, AfterViewInit, OnDestroy {
 
   printer() {
     window.print();
+  }
+
+  toPrint() {
+    var contenido= document.getElementById('report').innerHTML;
+    var contenidoOriginal= document.body.innerHTML;
+    document.body.innerHTML = contenido;
+    window.print();
+    document.body.innerHTML = contenidoOriginal;
+    window.close();
   }
 }

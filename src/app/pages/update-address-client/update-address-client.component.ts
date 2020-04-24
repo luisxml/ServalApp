@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressClientUpdate } from 'src/app/models/addressClientUpdate.model';
 import { AddressClient } from '../../models/addressClient.model';
 import { UserService } from 'src/app/services/service.index';
 import { ActivatedRoute, Router, Params } from '@angular/router';
@@ -17,8 +16,7 @@ export class UpdateAddressClientComponent implements OnInit {
   public departamentos: any[] = [];
   public provincias: any[] = [];
   public distritos: any[] = [];
-  public addressClient: AddressClientUpdate;
-  public addresClientUpdate: AddressClient;
+  public addressClient: AddressClient;  
   public idDepartamento = '';
   public idProvincia = '';
   public idDistrito = '';
@@ -33,8 +31,7 @@ export class UpdateAddressClientComponent implements OnInit {
     // tslint:disable-next-line: variable-name
     public _registerService: RegisterService
   ) {
-     this.addressClient = new AddressClientUpdate(0, 0, '', '', 0, 0, 0, '');
-     this.addresClientUpdate = new AddressClient(0, '', '', 0, false, 0);
+     this.addressClient = new AddressClient(0, '', '', 0, false);
   }
 
   ngOnInit() {

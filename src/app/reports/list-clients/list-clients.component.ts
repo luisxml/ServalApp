@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from 'src/app/services/service.index';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RegisterService } from '../../services/register/register.service';
@@ -9,7 +9,7 @@ declare function init_plugins();
   templateUrl: './list-clients.component.html',
   styles: []
 })
-export class ListClientsComponent implements OnInit, AfterViewInit {
+export class ListClientsComponent implements OnInit, OnDestroy {
 
   public clients;
   public search;
@@ -35,12 +35,18 @@ export class ListClientsComponent implements OnInit, AfterViewInit {
     });
 
     this.getCompanys();
+    
   }
 
-  ngAfterViewInit() {
-    this.activePrinter();
+  ngOnDestroy() {
+    this._userService.closeReport();
   }
 
+  // ngAfterViewInit() {
+  //   this.activePrinter();
+  // }
+
+  
   // Listar empresas
   getCompanys() {
     this._registerService.getClients(this.search).subscribe(
@@ -57,6 +63,16 @@ export class ListClientsComponent implements OnInit, AfterViewInit {
 
   printer() {
     window.print();
+    window.close();
+  }
+
+  toPrint() {
+    var contenido= document.getElementById('report').innerHTML;
+    var contenidoOriginal= document.body.innerHTML;
+    document.body.innerHTML = contenido;
+    window.print();
+    document.body.innerHTML = contenidoOriginal;
+    window.close();
   }
 
 }

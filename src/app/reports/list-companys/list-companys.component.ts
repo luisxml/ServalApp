@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from 'src/app/services/service.index';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -9,7 +9,7 @@ declare function init_plugins();
   templateUrl: './list-companys.component.html',
   styleUrls: ['./list-companys.component.css']
 })
-export class ListCompanysComponent implements OnInit, AfterViewInit {
+export class ListCompanysComponent implements OnInit, OnDestroy {
 
   public companyUsers;
   public ID_USER: number;
@@ -36,8 +36,8 @@ export class ListCompanysComponent implements OnInit, AfterViewInit {
     this.getCompanys();
   }
 
-  ngAfterViewInit() {
-    this.activePrinter();
+  ngOnDestroy() {
+    this._userService.closeReport();
   }
 
   // Listar empresas
@@ -56,6 +56,15 @@ export class ListCompanysComponent implements OnInit, AfterViewInit {
 
   printer() {
     window.print();
+  }
+
+  toPrint() {
+    var contenido= document.getElementById('report').innerHTML;
+    var contenidoOriginal= document.body.innerHTML;
+    document.body.innerHTML = contenido;
+    window.print();
+    document.body.innerHTML = contenidoOriginal;
+    window.close();
   }
 
 }
